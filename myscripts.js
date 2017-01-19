@@ -9,29 +9,34 @@
 
   $("#reducepomodoro").click(function(){
   if(countpom>0){
-    countpom--;
+    countpom=countpom-1;
     $("#pomtime").html(countpom);
   }
+  cp=countpom*60;
 });
 
    $("#addpomodoro").click(function(){
   if(countpom<45){
-    countpom++;
+    countpom=countpom+1;
     $("#pomtime").html(countpom);
   }
+  cp=countpom*60;
 });
 
   $("#reducebreak").click(function(){
-  if(countbreak>0){
-    countbreak--;
+  if(countbreak>5){
+    countbreak=countbreak-1;
     $("#breaktime").html(countbreak);
   }
+cb=countbreak*60;
 });
   $("#addbreak").click(function(){
   if(countbreak<20){
-    countbreak++;
+    countbreak++
     $("#breaktime").html(countbreak);
+
   }
+cb=countbreak*60;
 });
 
 
