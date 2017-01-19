@@ -1,0 +1,46 @@
+ body{
+  background: #000000;
+
+}
+
+.footer>h1{
+  font-size:19px;
+}
+#contact{
+    position:fixed;
+   bottom:20px;
+}
+
+#code{
+    font-size:25px;
+font-weight: bolder;}
+#pomodoro{
+
+  font-size: 40px;
+}
+
+#pomodoro>p{
+ font-size: 20px;
+margin-top:50%;
+ font-weight: bolder;
+}
+
+#start{
+margin-top:25px;
+}
+#reset{top:50%;
+
+}
+#break{
+font-size:40px;
+  height:100%;
+
+}
+#break>p{
+ font-size: 20px;
+margin-top:50%;
+ font-weight: bolder;
+}
+.TYPE{
+margin-bottom: 40px
+;}
