@@ -3,12 +3,16 @@
    var countbreak=parseInt($("#breaktime").html());
   console.log(countpom);
   console.log(countbreak);
+  var cp,cb;
+  var pomover = $("#pomover")[0];
+  var breakover = $("#breakover")[0];
+
    windowHeight = $(window).innerHeight();
     $('#pomodoro').css('min-height', windowHeight*0.5);
       $('#break').css('min-height', windowHeight*0.5);
 
   $("#reducepomodoro").click(function(){
-  if(countpom>0){
+  if(countpom>1){
     countpom=countpom-1;
     $("#pomtime").html(countpom);
   }
@@ -24,7 +28,7 @@
 });
 
   $("#reducebreak").click(function(){
-  if(countbreak>5){
+  if(countbreak>1){
     countbreak=countbreak-1;
     $("#breaktime").html(countbreak);
   }
@@ -32,16 +36,15 @@ cb=countbreak*60;
 });
   $("#addbreak").click(function(){
   if(countbreak<20){
-    countbreak++
+    countbreak++;
     $("#breaktime").html(countbreak);
 
   }
 cb=countbreak*60;
 });
 
-
-  var cp=countpom*60;
-    var cb=countbreak*60;
+cp=countpom*60;
+cb=countbreak*60;
 
   $("#start").click(function(){
     countpom=cp;
@@ -50,16 +53,20 @@ cb=countbreak*60;
        $("#break,.timepomo").css('visibility','hidden');
        var pomocounter=setInterval(pomcallback, 1000);
         function pomcallback(){
-
+             console.log("cp"+cp);
+             console.log("contpom:"+countpom);
              countpom--;
          if(countpom===0)
-          { $("#break").css('visibility','visible');
+          {   clearInterval(pomocounter);
+        pomover.play();
+           countpom=cp;
+            $("#break").css('visibility','visible');
            $("#break").css('visibilty','visible');
 
-            clearInterval(pomocounter);
-             countpom=cp;
+
+
              var breakcounter=setInterval(breakcallback,1000);
-            function breakcallback(){
+                 function breakcallback(){
              $("#timebreak").css('visibility','hidden')
             //  $("#breakclock").html(countbreak);
 
@@ -77,6 +84,9 @@ cb=countbreak*60;
               countbreak--;
               if(countbreak===0){
 clearInterval(breakcounter);
+
+
+breakover.play();
 countbreak=cb;
             $("#start").click();
               }
